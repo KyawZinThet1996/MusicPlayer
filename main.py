@@ -85,7 +85,17 @@ async def start(_, message: Message, lang):
 async def help(_, message: Message, lang):
     await message.reply_text(lang["helpText"].replace("<prefix>", config.PREFIXES[0]))
 
-
+    
+ @client.on_message(
+    filters.command("koyee", config.PREFIXES) & ~filters.private & ~filters.edited
+)
+@language
+@handle_error
+async def koyee(_, message: Message, lang):
+    await message.reply_text(ငါ့ownerအရမ်းဆင်တဲ့အကိုကြီးလေ)   
+    
+    
+ 
 @client.on_message(
     filters.command(["p", "play"], config.PREFIXES) & ~filters.private & ~filters.edited
 )
